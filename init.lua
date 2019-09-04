@@ -10,10 +10,14 @@ minetest.register_chatcommand('online', {
 
 			for k,v in pairs(minetest.get_connected_players()) do 
 
-				local name = v:get_player_name()
-				local head = "[combine:8x8:-8,-8="..skins.skins[name]..".png"
+				local name = v:get_player_name()	
+				local head = "[combine:8x8:-8,-8=character.png"	
 				local ping_texture = "[combine:10x8:0,-32=ping_pics.png"
 				local ping = math.floor((minetest.get_player_information(name).avg_rtt / 2) * 1000)
+
+				if minetest.get_modpath("simple_skins") then
+					head = "[combine:8x8:-8,-8="..skins.skins[name]..".png"
+				end	
 				
 				if ping >= 0 and ping <= 100 then
 					ping_texture = "[combine:10x8:0,0=ping_pics.png"

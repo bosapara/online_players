@@ -1,1 +1,1 @@
-simple_skins
+simple_skins?
